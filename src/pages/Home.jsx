@@ -28,7 +28,7 @@ const Home = () => {
       <div 
         className="text-center mb-16"
       >
-        <span className="text-indigo-600 font-semibold tracking-wider uppercase text-sm mb-4 block">New Collection 2024</span>
+        <span className="text-indigo-600 font-semibold tracking-wider uppercase text-sm mb-4 block">New Collection 2026</span>
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-gray-900 leading-tight">
           Shop Smarter, <br/><span className="text-indigo-600">Not Harder.</span>
         </h1>

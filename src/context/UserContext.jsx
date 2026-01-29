@@ -9,7 +9,7 @@ export const UserProvider = ({ children }) => {
     return savedUser ? JSON.parse(savedUser) : {
       name: 'Hemant Patil',
       email: 'hemant@example.com',
-      address: '123 Main St',
+      address: '441, Murthy Building, Bangalore - 560037',
     };
   });
 
