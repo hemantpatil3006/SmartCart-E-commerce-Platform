@@ -2,7 +2,7 @@
   "name": "smart-shopping-cart",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://hemantpatil3006.github.io/SmartCart-E-commerce-Platform",
+  "homepage": ".",
   "dependencies": {
     "@reduxjs/toolkit": "^2.8.2",
     "@testing-library/dom": "^10.4.0",
