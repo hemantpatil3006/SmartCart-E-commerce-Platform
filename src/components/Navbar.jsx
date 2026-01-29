@@ -2,12 +2,13 @@ import React, { useContext, useState, useEffect } from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { UserContext } from "../context/UserContext";
-import { Menu, X, ShoppingCart, User, Home as HomeIcon } from "lucide-react";
+import { Menu, X, ShoppingCart, User, Home as HomeIcon, Heart } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const { user } = useContext(UserContext);
   const totalItems = useSelector((state) => state.cart.totalItems);
+  const wishlistCount = useSelector((state) => state.wishlist.items.length);
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
@@ -22,6 +23,7 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "Home", path: "/", icon: <HomeIcon size={20} /> },
+    { name: "Wishlist", path: "/wishlist", icon: <Heart size={20} />, badge: wishlistCount },
     { name: "Cart", path: "/cart", icon: <ShoppingCart size={20} />, badge: totalItems },
     { name: "Profile", path: "/profile", icon: <User size={20} /> },
   ];

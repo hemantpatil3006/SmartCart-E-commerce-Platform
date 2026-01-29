@@ -1,14 +1,27 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { addToCart } from '../redux/cartSlice';
+import { toggleWishlist } from '../redux/wishlistSlice';
 import { toast } from 'react-hot-toast';
-import { ShoppingCart } from 'lucide-react';
+import { ShoppingCart, Heart } from 'lucide-react';
 
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const wishlistItems = useSelector((state) => state.wishlist.items);
+  const inWishlist = wishlistItems.find((item) => item.id === product.id);
+
+  const handleWishlistToggle = (e) => {
+    e.stopPropagation();
+    dispatch(toggleWishlist(product));
+    if (inWishlist) {
+      toast.error(`${product.name} removed from wishlist`);
+    } else {
+      toast.success(`${product.name} added to wishlist!`, { icon: '❤️' });
+    }
+  };
 
   const handleAddToCart = (e) => {
     e.stopPropagation();
@@ -29,6 +42,16 @@ const ProductCard = ({ product }) => {
       onClick={() => navigate(`/product/${product.id}`)}
     >
       <div className="relative aspect-square mb-6 overflow-hidden rounded-2xl bg-gray-50 flex items-center justify-center p-6">
+        <button 
+          onClick={handleWishlistToggle}
+          className={`absolute top-2 left-2 p-2 rounded-xl border shadow-sm transition-all z-20 ${
+            inWishlist 
+            ? "bg-pink-50 border-pink-100 text-pink-600" 
+            : "bg-white border-gray-100 text-gray-400 hover:text-pink-500"
+          }`}
+        >
+          <Heart size={18} className={inWishlist ? "fill-current" : ""} />
+        </button>
         <img 
           src={product.image} 
           alt={product.name} 
