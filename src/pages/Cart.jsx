@@ -52,43 +52,45 @@ const Cart = () => {
             {items.map((item) => (
               <motion.div
                 key={item.id}
-                layout
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 20 }}
-                className="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex items-center gap-6"
+                className="bg-white p-4 sm:p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col sm:flex-row items-center gap-4 sm:gap-6"
               >
-                <div className="w-24 h-24 bg-gray-50 rounded-2xl flex items-center justify-center p-4">
+                <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gray-50 rounded-2xl flex items-center justify-center p-3 sm:p-4">
                   <img src={item.image} alt={item.name} className="w-full h-full object-contain" />
                 </div>
                 
-                <div className="flex-grow">
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">{item.name}</h3>
+                <div className="flex-grow text-center sm:text-left">
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1">{item.name}</h3>
                   <p className="text-indigo-600 font-bold">${item.price}</p>
                 </div>
 
-                <div className="flex items-center gap-4 bg-gray-50 p-2 rounded-2xl border border-gray-100">
+                <div className="flex items-center gap-6">
+                  <div className="flex items-center gap-4 bg-gray-50 p-1.5 sm:p-2 rounded-2xl border border-gray-100">
+                    <button 
+                      onClick={() => handleQuantity(item.id, item.quantity - 1)}
+                      className="w-8 h-8 flex items-center justify-center rounded-xl bg-white shadow-sm hover:bg-gray-100 transition-colors"
+                    >
+                      <Minus size={16} />
+                    </button>
+                    <span className="w-8 text-center font-bold text-gray-900">{item.quantity}</span>
+                    <button 
+                      onClick={() => handleQuantity(item.id, item.quantity + 1)}
+                      className="w-8 h-8 flex items-center justify-center rounded-xl bg-white shadow-sm hover:bg-gray-100 transition-colors"
+                    >
+                      <Plus size={16} />
+                    </button>
+                  </div>
+
                   <button 
-                    onClick={() => handleQuantity(item.id, item.quantity - 1)}
-                    className="w-8 h-8 flex items-center justify-center rounded-xl bg-white shadow-sm hover:bg-gray-100 transition-colors"
+                    onClick={() => handleRemove(item.id, item.name)}
+                    className="p-3 text-red-500 hover:bg-red-50 rounded-2xl transition-colors"
+                    title="Remove item"
                   >
-                    <Minus size={16} />
-                  </button>
-                  <span className="w-8 text-center font-bold text-gray-900">{item.quantity}</span>
-                  <button 
-                    onClick={() => handleQuantity(item.id, item.quantity + 1)}
-                    className="w-8 h-8 flex items-center justify-center rounded-xl bg-white shadow-sm hover:bg-gray-100 transition-colors"
-                  >
-                    <Plus size={16} />
+                    <Trash2 size={22} />
                   </button>
                 </div>
-
-                <button 
-                  onClick={() => handleRemove(item.id, item.name)}
-                  className="p-3 text-red-500 hover:bg-red-50 rounded-2xl transition-colors"
-                >
-                  <Trash2 size={22} />
-                </button>
               </motion.div>
             ))}
           </AnimatePresence>

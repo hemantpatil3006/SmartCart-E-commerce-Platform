@@ -29,10 +29,10 @@ const Home = () => {
         className="text-center mb-16"
       >
         <span className="text-indigo-600 font-semibold tracking-wider uppercase text-sm mb-4 block">New Collection 2024</span>
-        <h1 className="text-5xl md:text-6xl font-bold mb-6 text-gray-900 leading-tight">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-gray-900 leading-tight">
           Shop Smarter, <br/><span className="text-indigo-600">Not Harder.</span>
         </h1>
-        <p className="text-gray-500 max-w-2xl mx-auto text-lg">
+        <p className="text-gray-500 max-w-2xl mx-auto text-base sm:text-lg">
           Discover our curated selection of premium electronics and accessories designed to enhance your lifestyle.
         </p>
       </div>
@@ -43,8 +43,8 @@ const Home = () => {
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-indigo-500 transition-colors" size={20} />
           <input
             type="text"
-            placeholder="Search for premium products..."
-            className="w-full pl-12 pr-4 py-4 bg-white border border-gray-100 rounded-2xl shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-100 focus:border-indigo-400 transition-all text-lg"
+            placeholder="Search products..."
+            className="w-full pl-12 pr-4 py-3 sm:py-4 bg-white border border-gray-100 rounded-2xl shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-100 focus:border-indigo-400 transition-all text-base sm:text-lg"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />

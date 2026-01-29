@@ -49,10 +49,10 @@ const ProductDetails = () => {
         Back to Results
       </motion.button>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
         {/* Product Image */}
         <div 
-            className="bg-white rounded-[3rem] p-12 shadow-sm border border-gray-100 aspect-square flex items-center justify-center relative overflow-hidden group"
+            className="bg-white rounded-3xl lg:rounded-[3rem] p-6 sm:p-12 shadow-sm border border-gray-100 aspect-square flex items-center justify-center relative overflow-hidden group"
         >
             <div className="absolute inset-0 bg-indigo-50/30 opacity-0 group-hover:opacity-100 transition-opacity" />
             <img 

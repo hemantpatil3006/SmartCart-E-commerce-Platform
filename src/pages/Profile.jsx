@@ -30,23 +30,22 @@ const Profile = () => {
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-white rounded-[2.5rem] shadow-sm border border-gray-100 overflow-hidden"
+        className="max-w-2xl mx-auto bg-white rounded-[2rem] sm:rounded-[3rem] shadow-sm border border-gray-100 overflow-hidden"
       >
-        {/* Profile Header */}
-        <div className="h-32 bg-indigo-600 relative">
-            <div className="absolute -bottom-12 left-10">
-                <div className="relative group">
-                    <div className="w-24 h-24 rounded-3xl bg-white border-4 border-white shadow-lg overflow-hidden flex items-center justify-center">
-                        <User size={48} className="text-indigo-200" />
-                    </div>
-                    <button className="absolute bottom-0 right-0 p-2 bg-indigo-500 text-white rounded-xl shadow-lg hover:bg-indigo-600 scale-0 group-hover:scale-100 transition-transform">
-                        <Camera size={16} />
-                    </button>
-                </div>
+        <div className="bg-indigo-600 p-8 sm:p-12 text-center text-white relative">
+          <div className="relative inline-block group mb-6">
+            <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-3xl bg-white/20 backdrop-blur-md border-2 border-white/50 flex items-center justify-center text-4xl sm:text-5xl font-black">
+              {user.name.charAt(0)}
             </div>
+            <button className="absolute -bottom-2 -right-2 bg-white text-indigo-600 p-2 sm:p-3 rounded-2xl shadow-lg opacity-0 group-hover:opacity-100 transition-opacity">
+              <Camera size={20} />
+            </button>
+          </div>
+          <h1 className="text-2xl sm:text-3xl font-bold mb-2">{user.name}</h1>
+          <p className="text-indigo-100">{user.email}</p>
         </div>
 
-        <div className="pt-16 px-10 pb-10">
+        <div className="p-6 sm:p-12">
             <div className="mb-10">
                 <h2 className="text-3xl font-black text-gray-900">Personal Account</h2>
                 <p className="text-gray-500">Manage your profile and shipping information.</p>
